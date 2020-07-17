@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+</head>
+
+<body>
+  <form id="frm1">
+    <label>First Name</label>
+    <input type="text" name="fname" id='fname' value="Donald"><br>
+    <label>Last Name</label>
+    <input type="text" name="lname" value="Duck" id="lname"><br><br>
+    <input type="submit" value="Submit">
+  </form><br>
+
+  <form id="form2">
+    <label>email:</label>
+    <input type="email" id="email" required><br>
+    <label>password:</label>
+    <input type="password" required id="password"><br>
+    <input type="button" onclick="fun()" value="Button">
+
+  </form>
+
+  <h1 id='here'></h1>
+
+  <script type="text/javascript">
+
+    function fun() {
+      console.log('aqui')
+      let password = document.getElementById('password').value;
+      document.querySelector('#here').innerHTML = password;
+    }
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+      document.getElementById('frm1').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let fname = document.getElementById('fname').value;
+        let lname = document.getElementById('lname').value;
+        document.querySelector('#here').innerHTML = fname + ' ' + lname;
+      })
+    });
+  </script>
+</body>
+
+</html>
